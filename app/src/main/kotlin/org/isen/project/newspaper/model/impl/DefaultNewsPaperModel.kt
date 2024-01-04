@@ -15,17 +15,17 @@ class DefaultNewsPaperModel: INewsPaperModel {
     companion object : Logging
 
     private val pcs = PropertyChangeSupport(this)
-    private var newspapersInformation: ArticleInformation? by Delegates.observable(null) { property, oldValue, newValue ->
-        logger.info("newspapersInformation change , on notifie les observers")
-        pcs.firePropertyChange(INewsPaperModel.DATATYPE_ARTICLE, oldValue, newValue)
 
+    private var articleInformation: ArticleInformation? by Delegates.observable(null) { property, oldValue, newValue ->
+        logger.info("Selection de tous les articles")
+        pcs.firePropertyChange(INewsPaperModel.DATATYPE_ARTICLE, oldValue, newValue)
     }
 
-    private var articleDescribeList = listOf<ArticleInfo>()
-    private var selectedNewPaper: ArticleInfo? by Delegates.observable(null) { property, oldValue, newValue ->
-        logger.info("nouvelle selection d'articles")
-        pcs.firePropertyChange(INewsPaperModel.DATATYPE_ARTICLE, oldValue, newValue)
+    private var articleDescriptionList = listOf<ArticleInfo>()
 
+    private var selectedArticle: ArticleInfo? by Delegates.observable(null) { property, oldValue, newValue ->
+        logger.info("Selection d'un article")
+        pcs.firePropertyChange(INewsPaperModel.DATATYPE_ARTICLE, oldValue, newValue)
     }
 
     override fun register(listener: PropertyChangeListener) {
@@ -44,7 +44,7 @@ class DefaultNewsPaperModel: INewsPaperModel {
                 .responseObject(ArticleInformation.Deserializer())
         logger.info("Status Code: &{reponse.statusCode}")
         result.let { (data, error) ->
-            newspapersInformation = data
+            articleInformation = data
 
         }
     }
@@ -54,19 +54,16 @@ class DefaultNewsPaperModel: INewsPaperModel {
     }
 
     public override fun changeCurrentSelection(id: String) {
-
-        if (articleDescribeList.isEmpty()) {
-            logger.info("Téléchargement des articles depuis les requetes")
-            val (request, reponse, result) = "https://newsapi.org/v2/everything?q=voiture&apiKey=fcf1ae001a1e415bbafca6d3d198036b".httpGet()
+        if(articleDescriptionList.isEmpty()){
+            val (request, reponse, result) = "https://newsapi.org/v2/everything?q=tesla&from=2023-12-03&sortBy=publishedAt&apiKey=8309d583f12e4887a867a21c8cf9fb95".httpGet()
                     .responseObject(ArticleInformation.Deserializer())
             logger.info("Status Code: &{reponse.statusCode}")
             result.let { (data, error) ->
-                articleDescribeList = data?.articles ?: listOf()
+                articleDescriptionList = data?.articles?:listOf()
             }
-
         }
-        selectedNewPaper = articleDescribeList.find {
-            it.source.id == id
+        selectedArticle = articleDescriptionList.find {
+            it.source.name == id
         }
     }
 
@@ -81,8 +78,8 @@ class DefaultNewsPaperModel: INewsPaperModel {
 //        println("Status Code pour rechercher theme: ${reponse.statusCode}")
 //        println("Requete envoyée: "+start + rechercheTheme + KEY)
 //        result.let { (data, error) ->
-//            newspapersInformation = data
-//            println(newspapersInformation)
+//            articleInformation = data
+//            println(articleInformation)
 //
 //        }
 //
@@ -99,8 +96,8 @@ class DefaultNewsPaperModel: INewsPaperModel {
 //        println("Status Code pour rechercher author: ${reponse.statusCode}")
 //        println("Requete envoyée: "+start + rechercheAuthor + KEY)
 //        result.let { (data, error) ->
-//            newspapersInformation = data
-//            println(newspapersInformation)
+//            articleInformation = data
+//            println(articleInformation)
 //
 //        }
 //    }
@@ -116,8 +113,8 @@ class DefaultNewsPaperModel: INewsPaperModel {
 //        println("Status Code pour rechercher author: ${reponse.statusCode}")
 //        println("Requete envoyée: "+start + rechercheLang + KEY)
 //        result.let { (data, error) ->
-//            newspapersInformation = data
-//            println(newspapersInformation)
+//            articleInformation = data
+//            println(articleInformation)
 //
 //        }
 //    }
@@ -135,8 +132,8 @@ class DefaultNewsPaperModel: INewsPaperModel {
 //        println("Status Code pour rechercher author: ${reponse.statusCode}")
 //        println("Requete envoyée: "+start + rechercheLang + KEY)
 //        result.let { (data, error) ->
-//            newspapersInformation = data
-//            println(newspapersInformation)
+//            articleInformation = data
+//            println(articleInformation)
 //
 //        }
 //    }

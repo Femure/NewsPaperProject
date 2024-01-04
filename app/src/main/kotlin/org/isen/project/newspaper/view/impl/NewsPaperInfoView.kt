@@ -10,26 +10,28 @@ import java.awt.event.ActionEvent
 import java.awt.event.ActionListener
 import java.beans.PropertyChangeEvent
 import javax.swing.*
-import javax.swing.border.CompoundBorder
 import javax.swing.border.EmptyBorder
-import javax.swing.border.LineBorder
+import javax.swing.event.ListSelectionEvent
+import javax.swing.event.ListSelectionListener
 import javax.swing.plaf.nimbus.NimbusLookAndFeel
 
-class DefaultNewsPaperInfoView(val controller:NewsPaperController, title:String="NewsPaper"):INewsPaperView,ActionListener {
+class DefaultNewsPaperInfoView(private val controller:NewsPaperController, title:String="NewsPaper"):INewsPaperView,ActionListener, ListSelectionListener {
 
     companion object Logging
-    private val themeSearchButton = createModernButton("Rechercher par thème")
-    private val authorSearchButton = createModernButton("Rechercher par source (journal)")
-    private val languageSearchButton=createModernButton("Rechercher par langue")
-    private val AllSearchButton=createModernButton("Rechercher tous les JtextField Remplis")
-    private val themeTextField = createModernTextField()
-    private val authorTextField = createModernCenterTextField()
-    private val languageTextFiled=createModernTextField()
+//    private val themeSearchButton = createModernButton("Rechercher par thème")
+//    private val authorSearchButton = createModernButton("Rechercher par source (journal)")
+//    private val languageSearchButton=createModernButton("Rechercher par langue")
+//    private val AllSearchButton=createModernButton("Rechercher tous les JtextField Remplis")
+//    private val themeTextField = createModernTextField()
+//    private val authorTextField = createModernCenterTextField()
+//    private val languageTextFiled=createModernTextField()
+    private val renderer = NewsPaperInfoRenderer()
 
-    private var articleList:JComboBox<ArticleInfo> = JComboBox<ArticleInfo>().apply{
-        addActionListener(this@DefaultNewsPaperInfoView)
-        renderer= NewsPaperInfoRenderer()
+    private var articleList = JList<ArticleInfo>().apply {
+        cellRenderer = renderer
+        addListSelectionListener(this@DefaultNewsPaperInfoView)
     }
+
 
 
     private val frame: JFrame
@@ -41,14 +43,17 @@ class DefaultNewsPaperInfoView(val controller:NewsPaperController, title:String=
             this.title=title
             this.preferredSize= Dimension(900,400)
             this.pack()
-
         }
         this.controller.registerView(this)
     }
 
 
+    private fun makeGUI():JPanel{
+        val contentPane=JPanel()
+        contentPane.background = Color(245, 245, 220);
+        contentPane.layout=BorderLayout()
 
-    private fun createNewsPapersComboBox(): JPanel {
+        //Header
         // Appliquer le Look and Feel Nimbus
         try {
             UIManager.setLookAndFeel(NimbusLookAndFeel())
@@ -56,8 +61,8 @@ class DefaultNewsPaperInfoView(val controller:NewsPaperController, title:String=
             e.printStackTrace()
         }
 
-        val contentPane = JPanel()
-        contentPane.layout = BorderLayout()
+        val header = JPanel()
+        header.layout = BorderLayout()
 
         // Utilisation de JLabel pour le titre avec un style similaire au renderer
         val titleLabel = JLabel("Liste des articles:")
@@ -66,58 +71,20 @@ class DefaultNewsPaperInfoView(val controller:NewsPaperController, title:String=
 
         titleLabel.border = EmptyBorder(5, 10, 5, 10) // Marges pour un meilleur espacement
 
-        articleList.border = EmptyBorder(5, 5, 5, 5)
 
         // Ajout du titre et de la liste des articles au panel
-        contentPane.add(titleLabel, BorderLayout.WEST)
+        header.add(titleLabel, BorderLayout.WEST)
+        header.add(JTextField("Search"))
+
+        contentPane.add(header,BorderLayout.NORTH)
+
+        // Body
+//        val scrollPane = JScrollPane(articleList)
         contentPane.add(articleList, BorderLayout.CENTER)
 
-        return contentPane
-    }
-    private fun makeGUI():JPanel{
-        val contentPane=JPanel()
-        contentPane.background = Color(245, 245, 220);
-        contentPane.layout=BorderLayout()
-        contentPane.add(createNewsPapersComboBox(),BorderLayout.NORTH)
-        // Partie centrale : Recherche d'articles précis
-        val searchPanel = createSearchPanel()
-        contentPane.add(searchPanel, BorderLayout.CENTER)
-        // Partie inférieure : Affichage du nombre d'articles trouvés
+        // Footer
 
         return contentPane
-    }
-    private fun createSearchPanel(): JPanel {
-        val searchPanel = JPanel()
-        searchPanel.layout = GridLayout(4, 2) // 2 lignes et 4 colonnes (2 pour les champs texte, 3 pour les boutons)
-
-        // Composants pour le thème
-        val themeLabel = createModernCenteredLabel("Thème:")
-        themeSearchButton.addActionListener(this)
-
-        // Composants pour l'auteur
-        val authorLabel = createModernCenteredLabel("Source:")
-        authorSearchButton.addActionListener(this)
-
-        // Composants pour la langue
-        val languageLabel = createModernCenteredLabel("Langue:")
-        languageSearchButton.addActionListener(this)
-        AllSearchButton.addActionListener(this)
-
-        // Ajoutez les composants au panel
-        searchPanel.add(themeLabel)
-        searchPanel.add(themeTextField)
-        searchPanel.add(themeSearchButton)
-        searchPanel.add(authorLabel)
-        searchPanel.add(authorTextField)
-        searchPanel.add(authorSearchButton)
-        searchPanel.add(languageLabel)
-        searchPanel.add(languageTextFiled)
-        searchPanel.add(languageSearchButton)
-        searchPanel.add(AllSearchButton)
-
-        // Ajoutez d'autres composants ou critères de recherche selon vos besoins
-
-        return searchPanel
     }
 
 
@@ -132,9 +99,11 @@ class DefaultNewsPaperInfoView(val controller:NewsPaperController, title:String=
 
     override fun propertyChange(evt: PropertyChangeEvent) {
         if(evt.newValue is ArticleInformation){
-            println("Reception NewPapersInfo : ${evt.newValue}")
+            println("1")
             logger.info("reception NewsPapers Info")
-            articleList.model = DefaultComboBoxModel<ArticleInfo>((evt.newValue as ArticleInformation).articles.toTypedArray())
+            articleList.model = DefaultListModel<ArticleInfo>().apply {
+                addAll((evt.newValue as ArticleInformation).articles)
+            }
 
         }
         else{
@@ -142,20 +111,19 @@ class DefaultNewsPaperInfoView(val controller:NewsPaperController, title:String=
         }
     }
 
-    override fun actionPerformed(e: ActionEvent) {
-        if(e.source is JComboBox<*>){
-            logger.info("click sur la combobox")
-            articleList.model.getElementAt(articleList.selectedIndex).source.id?.let {
-                this.controller.selectNewPaper(
-                        it
-
-                )
+    override fun valueChanged(e: ListSelectionEvent) {
+        if(e.source is JList<*> && !e.valueIsAdjusting){
+            if(articleList.selectedIndex != -1){
+                println(articleList.selectedIndex)
+                logger.info("click sur la list")
+                val selectedNewsPaper = articleList.model.getElementAt(articleList.selectedIndex)
+                this.controller.selectNewPaper(selectedNewsPaper.source.name)
+                FocusNewsPaper(this.controller,selectedNewsPaper,articleList)
             }
-            val selectedNewsPaper = articleList.model.getElementAt(articleList.selectedIndex)
-            val newWindow = FocusNewPaper(selectedNewsPaper,selectedNewsPaper.source.id+"-"+selectedNewsPaper.title)
-
-
         }
+    }
+
+    override fun actionPerformed(e: ActionEvent) {
 //        else if(e.source==themeSearchButton){
 //            logger.info("Click sur boutton recherche theme ${themeTextField.text}")
 //            println("Click sur boutton recherche theme ${themeTextField.text}")
@@ -180,86 +148,87 @@ class DefaultNewsPaperInfoView(val controller:NewsPaperController, title:String=
 //        }
     }
 
-    private fun createModernButton(text: String): JButton {
-        val button = JButton(text).apply {
-            styleModernButton(this)
-            addActionListener(this@DefaultNewsPaperInfoView)
+//    private fun createModernButton(text: String): JButton {
+//        val button = JButton(text).apply {
+//            styleModernButton(this)
+//            addActionListener(this@DefaultNewsPaperInfoView)
+//
+//            // Ajout de l'effet de survol
+//            addMouseListener(object : java.awt.event.MouseAdapter() {
+//                override fun mouseEntered(e: java.awt.event.MouseEvent) {
+//                    styleHoveredButton(this@apply)
+//                }
+//
+//                override fun mouseExited(e: java.awt.event.MouseEvent) {
+//                    styleModernButton(this@apply)
+//                }
+//            })
+//        }
+//
+//        return button
+//    }
 
-            // Ajout de l'effet de survol
-            addMouseListener(object : java.awt.event.MouseAdapter() {
-                override fun mouseEntered(e: java.awt.event.MouseEvent) {
-                    styleHoveredButton(this@apply)
-                }
 
-                override fun mouseExited(e: java.awt.event.MouseEvent) {
-                    styleModernButton(this@apply)
-                }
-            })
-        }
+//    private fun styleModernButton(button: JButton) {
+//        button.background = Color(52, 152, 219)  // Couleur de fond
+//        button.foreground = Color.white           // Couleur du texte
+//        button.isFocusPainted = false             // Enlève la bordure de focus
+//        button.font = Font("Arial", Font.BOLD, 14) // Police et taille du texte
+//        button.isBorderPainted = false            // Enlève la bordure du bouton
+//        button.cursor = Cursor(Cursor.HAND_CURSOR) // Curseur de type main
+//        button.preferredSize = Dimension(150, 40)  // Taille préférée
+//    }
+//    private fun styleHoveredButton(button: JButton) {
+//        button.background = Color(41, 128, 185) // Couleur de fond lors du survol
+//        // Vous pouvez ajuster d'autres propriétés pour le survol selon vos préférences
+//    }
+//    fun createModernTextField(): JTextField {
+//        val textField = JTextField().apply {
+//            background = Color(169, 169, 169) // Gris pour la couleur de fond
+//            foreground = Color.white // Blanc pour la couleur du texte
+//            font = Font("Arial", Font.PLAIN, 12) // Police et taille du texte
+//
+//            // Centrer le texte horizontalement
+//            horizontalAlignment = JTextField.CENTER
+//
+//            // Bordure intérieure et extérieure
+//            border = CompoundBorder(LineBorder(Color(0, 0, 0), 1, false), EmptyBorder(5, 5, 5, 5))
+//
+//            caretColor = Color(41, 128, 185) // Couleur du curseur
+//            preferredSize = Dimension(200, 30) // Taille préférée
+//        }
+//
+//        return textField
+//    }
+//    fun createModernCenterTextField(): JTextField {
+//        val textField = JTextField().apply {
+//            background = Color(169, 169, 169) // Gris pour la couleur de fond
+//            foreground = Color.white // Blanc pour la couleur du texte
+//            font = Font("Arial", Font.PLAIN, 12) // Police et taille du texte
+//
+//            // Centrer le texte horizontalement
+//            horizontalAlignment = JTextField.CENTER
+//
+//            // Bordure intérieure et extérieure
+//            border = CompoundBorder(LineBorder(Color(0, 0, 0), 1, false), EmptyBorder(0, 5, 0, 5))
+//
+//            caretColor = Color(41, 128, 185) // Couleur du curseur
+//            preferredSize = Dimension(200, 30) // Taille préférée
+//        }
+//
+//        return textField
+//    }
+//    fun createModernCenteredLabel(text: String): JLabel {
+//        val label = JLabel(text).apply {
+//            foreground = Color(41, 128, 185) // Couleur du texte
+//            background=Color(245, 245, 220);
+//            font = Font("Arial", Font.BOLD, 16) // Police et taille du texte
+//            horizontalAlignment = JLabel.CENTER // Centre le texte horizontalement
+//            verticalAlignment = JLabel.CENTER // Centre le texte verticalement
+//            preferredSize = Dimension(200, 30)  // Taille préférée
+//        }
+//
+//        return label
+//    }
 
-        return button
-    }
-
-
-    private fun styleModernButton(button: JButton) {
-        button.background = Color(52, 152, 219)  // Couleur de fond
-        button.foreground = Color.white           // Couleur du texte
-        button.isFocusPainted = false             // Enlève la bordure de focus
-        button.font = Font("Arial", Font.BOLD, 14) // Police et taille du texte
-        button.isBorderPainted = false            // Enlève la bordure du bouton
-        button.cursor = Cursor(Cursor.HAND_CURSOR) // Curseur de type main
-        button.preferredSize = Dimension(150, 40)  // Taille préférée
-    }
-    private fun styleHoveredButton(button: JButton) {
-        button.background = Color(41, 128, 185) // Couleur de fond lors du survol
-        // Vous pouvez ajuster d'autres propriétés pour le survol selon vos préférences
-    }
-    fun createModernTextField(): JTextField {
-        val textField = JTextField().apply {
-            background = Color(169, 169, 169) // Gris pour la couleur de fond
-            foreground = Color.white // Blanc pour la couleur du texte
-            font = Font("Arial", Font.PLAIN, 12) // Police et taille du texte
-
-            // Centrer le texte horizontalement
-            horizontalAlignment = JTextField.CENTER
-
-            // Bordure intérieure et extérieure
-            border = CompoundBorder(LineBorder(Color(0, 0, 0), 1, false), EmptyBorder(5, 5, 5, 5))
-
-            caretColor = Color(41, 128, 185) // Couleur du curseur
-            preferredSize = Dimension(200, 30) // Taille préférée
-        }
-
-        return textField
-    }
-    fun createModernCenterTextField(): JTextField {
-        val textField = JTextField().apply {
-            background = Color(169, 169, 169) // Gris pour la couleur de fond
-            foreground = Color.white // Blanc pour la couleur du texte
-            font = Font("Arial", Font.PLAIN, 12) // Police et taille du texte
-
-            // Centrer le texte horizontalement
-            horizontalAlignment = JTextField.CENTER
-
-            // Bordure intérieure et extérieure
-            border = CompoundBorder(LineBorder(Color(0, 0, 0), 1, false), EmptyBorder(0, 5, 0, 5))
-
-            caretColor = Color(41, 128, 185) // Couleur du curseur
-            preferredSize = Dimension(200, 30) // Taille préférée
-        }
-
-        return textField
-    }
-    fun createModernCenteredLabel(text: String): JLabel {
-        val label = JLabel(text).apply {
-            foreground = Color(41, 128, 185) // Couleur du texte
-            background=Color(245, 245, 220);
-            font = Font("Arial", Font.BOLD, 16) // Police et taille du texte
-            horizontalAlignment = JLabel.CENTER // Centre le texte horizontalement
-            verticalAlignment = JLabel.CENTER // Centre le texte verticalement
-            preferredSize = Dimension(200, 30)  // Taille préférée
-        }
-
-        return label
-    }
 }

@@ -6,7 +6,6 @@ package org.isen.project.newspaper
 import org.isen.project.newspaper.model.INewsPaperModel
 import org.isen.project.newspaper.ctl.NewsPaperController
 import org.isen.project.newspaper.model.impl.DefaultNewsPaperModel
-import org.isen.project.newspaper.view.impl.FocusNewPaper
 import org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView
 
 

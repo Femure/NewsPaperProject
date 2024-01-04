@@ -29,8 +29,8 @@ class NewsPaperController(val model: INewsPaperModel) {
         this.model.findArticleInformation()
     }
 
-    fun selectNewPaper(id:String){
-        this.model.changeCurrentSelection(id)
+    fun selectNewPaper(name:String){
+        this.model.changeCurrentSelection(name)
 
     }
 //    fun rechercheThemeNewPaper(theme :String){
