@@ -2,6 +2,7 @@ package org.isen.project.newspaper.model
 
 import org.isen.project.newspaper.model.data.ArticleInformation
 import org.isen.project.newspaper.model.impl.DefaultNewsPaperModel
+import org.junit.jupiter.api.Assertions.assertNotEquals
 import org.junit.jupiter.api.Test
 import java.beans.PropertyChangeListener
 import kotlin.test.assertEquals
@@ -9,24 +10,79 @@ import kotlin.test.assertTrue
 import kotlin.test.fail
 
 class DefaultNewsPaperModelJUnitTest {
+    private var passObserver = false
+    private var dataResult: Any? = null
+    private val myObserver = PropertyChangeListener { evt ->
+        passObserver = true
+        dataResult = evt?.newValue
+    }
+    private val model = DefaultNewsPaperModel().apply {
+        register(myObserver)
+    }
+
 
     @Test
-    fun findNewsPapersInformation(){
-        var passObserver:Boolean = false
-        var data_result:Any?=null
-        val model = DefaultNewsPaperModel()
-        var myObserver = PropertyChangeListener{ evt ->
-            passObserver = true
-            data_result=evt?.newValue ?: null
-
-        }
+    fun selectEndPoint() {
         model.register(myObserver)
-        model.findArticleInformation()
-        Thread.sleep(10000)
-        assertTrue(passObserver,"after update model, observer must receive notification")
-        data_result?.let{
-            assertEquals("ok",(it as ArticleInformation).status)
-            assertEquals(ArticleInformation::class.java, it ::class.java)
-        }?: fail("data_result cannot be null")
+        model.selectEndPoint("All")
+        Thread.sleep(1000)
+
+        assertTrue(passObserver, "after update model, observer must receive notification")
+        dataResult?.let {
+            assertEquals(ArticleInformation::class.java, it::class.java)
+            assertNotEquals(0, (it as ArticleInformation).totalResults)
+        } ?: fail("data result cannot be null")
+    }
+
+    @Test
+    fun sortArticleInformation() {
+        model.register(myObserver)
+        model.sortArticleInformation("Date")
+        Thread.sleep(1000)
+
+        assertTrue(passObserver, "after update model, observer must receive notification")
+        dataResult?.let {
+            assertEquals(ArticleInformation::class.java, it::class.java)
+            assertNotEquals(0, (it as ArticleInformation).totalResults)
+        } ?: fail("data result cannot be null")
+    }
+
+    @Test
+    fun findArticleByLanguage() {
+        model.register(myObserver)
+        model.findArticleByLanguage("FR")
+        Thread.sleep(1000)
+
+        assertTrue(passObserver, "after update model, observer must receive notification")
+        dataResult?.let {
+            assertEquals(ArticleInformation::class.java, it::class.java)
+            assertNotEquals(0, (it as ArticleInformation).totalResults)
+        } ?: fail("data result cannot be null")
+    }
+
+    @Test
+    fun findArticleByCategory() {
+        model.register(myObserver)
+        model.findArticleByCategory("Sports")
+        Thread.sleep(1000)
+
+        assertTrue(passObserver, "after update model, observer must receive notification")
+        dataResult?.let {
+            assertEquals(ArticleInformation::class.java, it::class.java)
+            assertNotEquals(0, (it as ArticleInformation).totalResults)
+        } ?: fail("data result cannot be null")
+    }
+
+    @Test
+    fun searchArticle() {
+        model.register(myObserver)
+        model.searchArticle("bitcoin")
+        Thread.sleep(1000)
+
+        assertTrue(passObserver, "after update model, observer must receive notification")
+        dataResult?.let {
+            assertEquals(ArticleInformation::class.java, it::class.java)
+            assertNotEquals(0, (it as ArticleInformation).totalResults)
+        } ?: fail("data result cannot be null")
     }
 }

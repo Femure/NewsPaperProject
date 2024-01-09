@@ -3,18 +3,16 @@
  */
 package org.isen.project.newspaper
 
-import org.isen.project.newspaper.model.INewsPaperModel
 import org.isen.project.newspaper.ctl.NewsPaperController
 import org.isen.project.newspaper.model.impl.DefaultNewsPaperModel
 import org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView
 
 
 fun main() {
-    val newsPaperModel:INewsPaperModel= DefaultNewsPaperModel()
-    val newsPaperController=NewsPaperController(newsPaperModel)
-    val newsPaperInfoView=DefaultNewsPaperInfoView(newsPaperController,"News Papers Application")
-    //val newsPapersInfoViewFocus=FocusNewPaper(newsPapersController,"Test")
-    newsPaperController.displayView()
-    newsPaperController.loadNewsPaperInformation()
+    val newsPaperModel = DefaultNewsPaperModel()
+    val newsPaperController = NewsPaperController(newsPaperModel)
+    DefaultNewsPaperInfoView(newsPaperController, "News Papers Application")
+    newsPaperController.displayViews()
+    newsPaperController.loadNewsPaperInformationByEndpoint("headline")
 }
 

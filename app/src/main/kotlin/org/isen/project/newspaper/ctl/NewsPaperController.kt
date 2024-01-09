@@ -12,38 +12,44 @@ class NewsPaperController(val model: INewsPaperModel) {
         this.model.register(v)
     }
 
-    fun displayView(){
+    fun displayViews(){
         views.forEach{
             it.display()
         }
     }
 
-    fun closeView(){
+    fun closeViews(){
         views.forEach{
             it.close()
         }
     }
 
-
-    fun loadNewsPaperInformation(){
-        this.model.findArticleInformation()
+    fun loadNewsPaperInformationByEndpoint(endpoint: String){
+        this.model.selectEndPoint(endpoint)
     }
 
-    fun selectNewPaper(name:String){
+    fun selectNewsPaper(name:String){
         this.model.changeCurrentSelection(name)
 
     }
-//    fun rechercheThemeNewPaper(theme :String){
-//        this.model.findParticularArticleTheme(theme)
-//    }
-//    fun rechercheAuthorNewPaper(author :String){
-//        this.model.findParticularArticleAuthor(author)
-//    }
-//    fun rechercherLanguageNewPaper(lang:String){
-//        this.model.findParticularArticleLanguage(lang)
-//    }
-//    fun rechercherAllNewPaperAvance(theme:String,author:String,lang:String){
-//        this.model.findAllParticularArticle(theme, author, lang)
-//    }
+    fun sortNewsPaper(sort :String){
+        this.model.sortArticleInformation(sort)
+    }
+
+    fun filterByLanguageNewsPaper(lang:String){
+        this.model.findArticleByLanguage(lang)
+    }
+
+    fun searchNewsPaper(search:String){
+        this.model.searchArticle(search)
+    }
+
+    fun filterByCategoryNewsPaper(category: String) {
+        this.model.findArticleByCategory(category)
+    }
+
+    fun exportArticleToPDF(filePath: String){
+        this.model.exportArticleToPDF(filePath)
+    }
 
 }
