@@ -5,7 +5,10 @@ import org.isen.project.newspaper.ctl.NewsPaperController
 import org.isen.project.newspaper.model.data.ArticleInfo
 import org.isen.project.newspaper.view.INewsPaperView
 import java.awt.*
-import java.awt.event.*
+import java.awt.event.ActionEvent
+import java.awt.event.ActionListener
+import java.awt.event.ComponentAdapter
+import java.awt.event.ComponentEvent
 import java.beans.PropertyChangeEvent
 import java.net.URL
 import javax.imageio.ImageIO
@@ -17,7 +20,7 @@ class SelectedArticleView(
     private val controller: NewsPaperController,
     private val articleInfo: ArticleInfo,
 ) :
-    INewsPaperView, ActionListener, WindowAdapter() {
+    INewsPaperView, ActionListener {
     companion object Logging
 
     private var imageLabel = JLabel()
@@ -29,7 +32,6 @@ class SelectedArticleView(
             isVisible = true
             contentPane = makeGUIFocus()
             defaultCloseOperation = WindowConstants.DISPOSE_ON_CLOSE
-            addWindowListener(this@SelectedArticleView)
             title = "Focus on an article"
             setLocation(870, 0)
             preferredSize = Dimension(500, 400)
@@ -78,8 +80,8 @@ class SelectedArticleView(
 
         //Description
         val descriptionPanel = JLabel().apply {
-            text = "<html>${articleInfo.description}</html>"
-            font = Font("Arial", Font.PLAIN, 18)
+            text = if(articleInfo.description!=null) "<html>${articleInfo.description}</html>" else "No description"
+            font = Font("Arial Unicode MS", Font.PLAIN, 18)
         }
         val gbDescription = GridBagConstraints().apply {
             gridx = 0
@@ -93,26 +95,29 @@ class SelectedArticleView(
         bodyPanel.add(descriptionPanel, gbDescription)
 
         //Image
-        val gbImage = GridBagConstraints().apply {
-            gridx = 0
-            gridy = 1
-            weightx = 1.0
-            weighty = 1.0
-            anchor = GridBagConstraints.CENTER
-            fill = GridBagConstraints.BOTH
-        }
-        bodyPanel.add(imageLabel, gbImage)
-
-        contentPane.addComponentListener(object : ComponentAdapter() {
-            override fun componentResized(e: ComponentEvent) {
-                loadImageAndResize(bodyPanel)
+        if(articleInfo.urlToImage!=null){
+            val gbImage = GridBagConstraints().apply {
+                gridx = 0
+                gridy = 1
+                weightx = 1.0
+                weighty = 1.0
+                anchor = GridBagConstraints.CENTER
+                fill = GridBagConstraints.BOTH
             }
-        })
+            bodyPanel.add(imageLabel, gbImage)
+
+            contentPane.addComponentListener(object : ComponentAdapter() {
+                override fun componentResized(e: ComponentEvent) {
+                    loadImageAndResize(bodyPanel)
+                }
+            })
+        }
+
 
         //Content
         val contentArea = JLabel().apply {
-            text = "<html>${articleInfo.content}</html>"
-            font = Font("Arial", Font.PLAIN, 15)
+            text = if(articleInfo.content!=null) "<html>${articleInfo.content}</html>" else "No content"
+            font = Font("Arial Unicode MS", Font.PLAIN, 15)
         }
         val gbContent = GridBagConstraints().apply {
             gridx = 0
@@ -129,7 +134,7 @@ class SelectedArticleView(
         //URL
         val urlLabel = JLabel().apply {
             text = "Reference : ${articleInfo.url}"
-            font = Font("Arial", Font.BOLD, 12)
+            font = Font("Arial Unicode MS", Font.BOLD, 12)
             horizontalAlignment = SwingConstants.LEFT
             foreground = Color(41, 128, 185)
         }
@@ -145,8 +150,8 @@ class SelectedArticleView(
 
         //Author
         val authorLabel = JLabel().apply {
-            text = "Author : ${articleInfo.author}"
-            font = Font("Arial", Font.BOLD, 12)
+            text = "Author : ${if(articleInfo.author!=null) articleInfo.author else "Unknown"}"
+            font = Font("Arial Unicode MS", Font.BOLD, 12)
             horizontalAlignment = SwingConstants.LEFT
             foreground = Color(41, 128, 185)
         }
@@ -189,10 +194,6 @@ class SelectedArticleView(
 
     override fun propertyChange(evt: PropertyChangeEvent) {
     }
-
-    override fun windowClosing(e: WindowEvent) {
-    }
-
 
     override fun actionPerformed(e: ActionEvent) {
         if (e.actionCommand == "Exporter en PDF") {

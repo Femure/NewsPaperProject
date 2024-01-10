@@ -17,19 +17,20 @@ import javax.swing.event.ListSelectionListener
 import javax.swing.plaf.nimbus.NimbusLookAndFeel
 
 
-class DefaultNewsPaperInfoView(private val controller: NewsPaperController, title: String = "NewsPaper") : INewsPaperView, ActionListener, ListSelectionListener {
+class DefaultNewsPaperInfoView(private val controller: NewsPaperController, title: String = "NewsPaper") :
+    INewsPaperView, ActionListener, ListSelectionListener {
 
     companion object Logging
 
-    private val renderer = NewsPaperInfoRenderer()
-
     private var articleList = JList<ArticleInfo>().apply {
-        cellRenderer = renderer
+        cellRenderer = NewsPaperInfoRenderer()
         addListSelectionListener(this@DefaultNewsPaperInfoView)
     }
 
     private val searchArea = JTextArea().apply {
         layout = FlowLayout()
+        lineWrap = true
+        wrapStyleWord = true
         margin = Insets(5, 5, 5, 5)
     }
 
@@ -38,9 +39,15 @@ class DefaultNewsPaperInfoView(private val controller: NewsPaperController, titl
         addActionListener(this@DefaultNewsPaperInfoView)
     }
 
-    private val listLanguage = listOf("AR", "DE", "EN", "ES", "FR", "HE", "IT", "NL", "NO", "PT", "RU", "SV", "ZH")
+    private var listSource = JComboBox<String>().apply {
+        addActionListener(this@DefaultNewsPaperInfoView)
+    }
+
+    private val listLanguage =
+        listOf("All", "AR", "DE", "EN", "ES", "FR", "HE", "IT", "NL", "NO", "PT", "RU", "SV", "ZH")
     private val listSort = listOf("Popularity", "Relevancy", "Newest")
-    private val listCategory = listOf("General", "Business", "Entertainment", "Health", "Science", "Sports", "Technology")
+    private val listCategory =
+        listOf("General", "Business", "Entertainment", "Health", "Science", "Sports", "Technology")
 
     private val frame: JFrame
 
@@ -69,13 +76,14 @@ class DefaultNewsPaperInfoView(private val controller: NewsPaperController, titl
             background = Color(245, 245, 220)
             layout = BorderLayout()
 
+            // Header
+            add(header(), BorderLayout.NORTH)
+
+            // Body
+            add(JScrollPane(articleList), BorderLayout.CENTER)
+
+
         }
-
-        //Header
-        contentPane.add(header(), BorderLayout.NORTH)
-
-        // Body
-        contentPane.add(JScrollPane(articleList), BorderLayout.CENTER)
 
         return contentPane
     }
@@ -83,26 +91,61 @@ class DefaultNewsPaperInfoView(private val controller: NewsPaperController, titl
     private fun header(): JPanel {
         val header = JPanel(GridBagLayout())
 
+        //Filter label
         val filterLabel = JLabel().apply {
-            text = "Filter "
-            font = Font("Arial", Font.BOLD, 16)
+            text = "Filters :"
+            font = Font("Arial Unicode MS Unicode MS", Font.BOLD, 16)
             foreground = Color(41, 128, 185)
         }
         val gbFilter = GridBagConstraints().apply {
             gridx = 0
             gridy = 0
             anchor = GridBagConstraints.WEST
-            insets = Insets(10, 10, 5, 0)
+            insets = Insets(10, 10, 10, 20)
         }
         header.add(filterLabel, gbFilter)
 
+        //Type
+        val endPointPanel = JPanel().apply {
+            layout = BorderLayout()
+            //Label
+            val typeLabel = JLabel().apply {
+                text = "Type"
+                horizontalAlignment = SwingConstants.CENTER
+                font = Font("Arial Unicode MS", Font.BOLD, 12)
+            }
+            add(typeLabel,BorderLayout.NORTH)
+            //ComboBox
+            add(listEndpoint,BorderLayout.SOUTH)
+        }
         val gbEndpoint = GridBagConstraints().apply {
             gridx = 1
             gridy = 0
-            anchor = GridBagConstraints.WEST
-            insets = Insets(10, 0, 5, 0)
+            anchor = GridBagConstraints.CENTER
+            insets = Insets(10, 0, 10, 20)
         }
-        header.add(listEndpoint, gbEndpoint)
+        header.add(endPointPanel, gbEndpoint)
+
+        //Sources
+        val endSourcesPanel = JPanel().apply {
+            layout = BorderLayout()
+            //Label
+            val sourcesLabel = JLabel().apply {
+                text = "Sources"
+                horizontalAlignment = SwingConstants.CENTER
+                font = Font("Arial Unicode MS", Font.BOLD, 12)
+            }
+            add(sourcesLabel,BorderLayout.NORTH)
+            //ComboBox
+            add(listSource,BorderLayout.SOUTH)
+        }
+        val gbSource = GridBagConstraints().apply {
+            gridx = 2
+            gridy = 0
+            anchor = GridBagConstraints.CENTER
+            insets = Insets(10, 0, 10, 20)
+        }
+        header.add(endSourcesPanel, gbSource)
 
 
         // Menu bar
@@ -113,51 +156,34 @@ class DefaultNewsPaperInfoView(private val controller: NewsPaperController, titl
             add(JSeparator(SwingConstants.VERTICAL))
             add(menu("Sort"))
         }
-
         val gbMenuBar = GridBagConstraints().apply {
-            gridx = 2
+            gridx = 3
             gridy = 0
-            weightx = 1.0
+            fill = GridBagConstraints.VERTICAL
             anchor = GridBagConstraints.CENTER
-            insets = Insets(10, 0, 5, 5)
+            insets = Insets(10, 0, 10, 5)
         }
-
         header.add(menuBar, gbMenuBar)
 
-        val titleLabel = JLabel().apply {
-            text = "Liste des articles"
-            font = Font("Arial", Font.BOLD, 16)
-            foreground = Color(41, 128, 185)
+        //Search bar
+        val searchBar = JPanel().apply {
+            layout = BorderLayout()
+            //Search text area
+            add(searchArea, BorderLayout.CENTER)
+            //Search button
+            val searchButton = JButton().apply {
+                text = "Search"
+                addActionListener(this@DefaultNewsPaperInfoView)
+            }
+            add(searchButton, BorderLayout.EAST)
         }
-
-        val gbTitle = GridBagConstraints().apply {
+        val gbSearch = GridBagConstraints().apply {
             gridx = 0
             gridy = 1
-            anchor = GridBagConstraints.WEST
-            insets = Insets(0, 10, 5, 5)
-        }
-
-        header.add(titleLabel, gbTitle)
-
-        // Search bar
-        val searchBar = JPanel(BorderLayout())
-
-        searchBar.add(searchArea, BorderLayout.CENTER)
-
-        val searchButton = JButton().apply {
-            text = "Search"
-            addActionListener(this@DefaultNewsPaperInfoView)
-        }
-        searchBar.add(searchButton, BorderLayout.EAST)
-
-        val gbSearch = GridBagConstraints().apply {
-            gridx = 2
-            gridy = 1
+            gridwidth = 4
             fill = GridBagConstraints.HORIZONTAL
-            weightx = 1.0
-            insets = Insets(0, 0, 10, 0)
+            insets = Insets(0, 10, 10, 10)
         }
-
         header.add(searchBar, gbSearch)
 
         return header
@@ -166,7 +192,7 @@ class DefaultNewsPaperInfoView(private val controller: NewsPaperController, titl
     private fun menu(nom: String): JMenu {
         val menu = JMenu(nom)
         menu.margin = Insets(0, 50, 0, 50)
-        menu.font = Font("Arial", Font.BOLD, 12)
+        menu.font = Font("Arial Unicode MS", Font.BOLD, 12)
 
         when (nom) {
             "Language" -> {
@@ -174,11 +200,13 @@ class DefaultNewsPaperInfoView(private val controller: NewsPaperController, titl
                     menu.add(MyMenuItem(it, this@DefaultNewsPaperInfoView))
                 }
             }
+
             "Sort" -> {
                 listSort.forEach {
                     menu.add(MyMenuItem(it, this@DefaultNewsPaperInfoView))
                 }
             }
+
             else -> {
                 listCategory.forEach {
                     menu.add(MyMenuItem(it, this@DefaultNewsPaperInfoView))
@@ -198,17 +226,25 @@ class DefaultNewsPaperInfoView(private val controller: NewsPaperController, titl
     }
 
     override fun propertyChange(evt: PropertyChangeEvent) {
-        if (evt.newValue is ArticleInformation) {
-            logger.info("Reception de la liste d'articles")
-            articleList.model = DefaultListModel<ArticleInfo>().apply {
-                addAll((evt.newValue as ArticleInformation).articles)
+        when (evt.newValue) {
+            is ArticleInformation -> {
+                logger.info("Reception de la liste d'articles")
+                articleList.model = DefaultListModel<ArticleInfo>().apply {
+                    addAll((evt.newValue as ArticleInformation).articles)
+                }
+                listSource.model = DefaultComboBoxModel((listOf("All") + (evt.newValue as ArticleInformation).articles.mapNotNull { it.source.id }
+                    .distinct()).toTypedArray())
             }
-        }
-        else if(evt.newValue is ArticleInfo) {
-            logger.info("Reception de l'article selectionné")
-            SelectedArticleView(this.controller, evt.newValue as ArticleInfo)
-        }else{
-            logger.warn("Data inconnue")
+
+            is ArticleInfo -> {
+                logger.info("Reception de l'article selectionné")
+                SelectedArticleView(this.controller, evt.newValue as ArticleInfo)
+            }
+
+            else -> {
+                println(evt)
+                logger.warn("Data inconnue")
+            }
         }
     }
 
@@ -227,22 +263,28 @@ class DefaultNewsPaperInfoView(private val controller: NewsPaperController, titl
                 logger.info("Ordonne la liste")
                 this.controller.sortNewsPaper(e.actionCommand)
             }
+
             in listLanguage -> {
                 logger.info("Filtre par langue")
                 this.controller.filterByLanguageNewsPaper(e.actionCommand)
             }
+
             in listCategory -> {
                 logger.info("Filtre par category")
                 this.controller.filterByCategoryNewsPaper(e.actionCommand)
             }
+
             "Search" -> {
                 logger.info("Fait une recherche : ${searchArea.text}")
                 this.controller.searchNewsPaper(searchArea.text)
             }
-            else -> {
-                logger.info("Change de endpoint")
-                this.controller.loadNewsPaperInformationByEndpoint(listEndpoint.model.getElementAt(listEndpoint.selectedIndex))
-            }
+        }
+        if (e.source == listSource) {
+            logger.info("Filtre par source")
+            this.controller.filterBySourceNewsPaper(listSource.model.getElementAt(listSource.selectedIndex))
+        } else if (e.source == listEndpoint) {
+            logger.info("Change de endpoint")
+            this.controller.loadNewsPaperInformationByEndpoint(listEndpoint.model.getElementAt(listEndpoint.selectedIndex))
         }
     }
 }

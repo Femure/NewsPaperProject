@@ -39,6 +39,9 @@ class NewsPaperController(val model: INewsPaperModel) {
     fun filterByLanguageNewsPaper(lang:String){
         this.model.findArticleByLanguage(lang)
     }
+    fun filterBySourceNewsPaper(source: String){
+        this.model.findArticleBySource(source)
+    }
 
     fun searchNewsPaper(search:String){
         this.model.searchArticle(search)

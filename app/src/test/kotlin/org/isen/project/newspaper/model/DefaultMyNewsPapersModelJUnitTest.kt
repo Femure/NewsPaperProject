@@ -1,5 +1,6 @@
 package org.isen.project.newspaper.model
 
+import org.isen.project.newspaper.model.data.ArticleInfo
 import org.isen.project.newspaper.model.data.ArticleInformation
 import org.isen.project.newspaper.model.impl.DefaultNewsPaperModel
 import org.junit.jupiter.api.Assertions.assertNotEquals
@@ -74,6 +75,20 @@ class DefaultNewsPaperModelJUnitTest {
     }
 
     @Test
+    fun findArticleBySource() {
+        model.register(myObserver)
+        model.selectEndPoint("All")
+        model.findArticleBySource("bbc-news")
+        Thread.sleep(1000)
+
+        assertTrue(passObserver, "after update model, observer must receive notification")
+        dataResult?.let {
+            assertEquals(ArticleInformation::class.java, it::class.java)
+            assertNotEquals(0, (it as ArticleInformation).totalResults)
+        } ?: fail("data result cannot be null")
+    }
+
+    @Test
     fun searchArticle() {
         model.register(myObserver)
         model.searchArticle("bitcoin")
@@ -84,5 +99,24 @@ class DefaultNewsPaperModelJUnitTest {
             assertEquals(ArticleInformation::class.java, it::class.java)
             assertNotEquals(0, (it as ArticleInformation).totalResults)
         } ?: fail("data result cannot be null")
+    }
+
+    @Test
+    fun changeCurrentSelection(){
+        model.selectEndPoint("All")
+        model.changeCurrentSelection("The End of One-Size-Fits-All Health Care")
+        Thread.sleep(1000)
+
+        assertTrue(passObserver, "after update model, observer must receive notification")
+        dataResult?.let {
+            assertEquals(ArticleInfo::class.java, it::class.java)
+            assertNotEquals(0, (it as ArticleInformation).totalResults)
+        } ?: fail("data result cannot be null")
+    }
+
+    @Test
+    fun exportArticleToPDF(){
+
+        model.exportArticleToPDF("app/src/main/resources/pdf/test.pdf")
     }
 }

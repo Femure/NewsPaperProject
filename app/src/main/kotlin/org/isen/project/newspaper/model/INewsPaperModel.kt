@@ -15,7 +15,7 @@ interface INewsPaperModel {
     fun sortArticleInformation(sort: String)
     fun findArticleByLanguage(lang: String)
     fun findArticleByCategory(cate: String)
-    fun findArticleBySource(source: String)
+    fun findArticleBySource(src: String)
     fun searchArticle(search: String)
     fun exportArticleToPDF(filePath: String)
 }

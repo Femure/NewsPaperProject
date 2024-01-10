@@ -21,9 +21,9 @@ class NewsPaperInfoRenderer : JPanel(), ListCellRenderer<ArticleInfo> {
         preferredSize = Dimension(0,60)
 
 
-        titleLabel.font = Font("Arial", Font.BOLD, 16)
-        publishedAtLabel.font = Font("Arial", Font.ITALIC, 10)
-        authorLabel.font = Font("Arial", Font.PLAIN, 14)
+        titleLabel.font = Font("Arial Unicode MS", Font.BOLD, 16)
+        publishedAtLabel.font = Font("Arial Unicode MS", Font.ITALIC, 10)
+        authorLabel.font = Font("Arial Unicode MS", Font.PLAIN, 14)
         layout = GridBagLayout()
 
         //Title
@@ -77,7 +77,7 @@ class NewsPaperInfoRenderer : JPanel(), ListCellRenderer<ArticleInfo> {
         if (value != null) {
             titleLabel.text = value.title
             publishedAtLabel.text = value.publishedAt
-            authorLabel.text = "Source ${value.source.name}"
+            authorLabel.text = "Source : ${value.source.name}"
         }
 
 

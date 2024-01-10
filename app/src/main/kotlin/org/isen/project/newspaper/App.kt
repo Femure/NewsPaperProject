@@ -13,6 +13,6 @@ fun main() {
     val newsPaperController = NewsPaperController(newsPaperModel)
     DefaultNewsPaperInfoView(newsPaperController, "News Papers Application")
     newsPaperController.displayViews()
-    newsPaperController.loadNewsPaperInformationByEndpoint("headline")
+    newsPaperController.loadNewsPaperInformationByEndpoint("All")
 }
 

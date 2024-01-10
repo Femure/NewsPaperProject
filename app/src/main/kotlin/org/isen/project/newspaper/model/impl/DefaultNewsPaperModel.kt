@@ -23,12 +23,13 @@ import kotlin.properties.Delegates
 class DefaultNewsPaperModel : INewsPaperModel {
     companion object : Logging {
         var prefix_url: String? = null
-        const val apiKey = "b5d870a96bdb44b78e2cfd4d7ea79fc9" //"8309d583f12e4887a867a21c8cf9fb95"
+        const val apiKey = "fcf1ae001a1e415bbafca6d3d198036b" //"8309d583f12e4887a867a21c8cf9fb95"
         var date: String? = null
         var sortBy: String? = null
         var language: String? = null
         var q: String? = null
         var category: String? = null
+        var source: String? = null
     }
 
 
@@ -61,6 +62,7 @@ class DefaultNewsPaperModel : INewsPaperModel {
         } else if (endpoint != "All" && prefix_url != "https://newsapi.org/v2/top-headlines") {
             prefix_url = "https://newsapi.org/v2/top-headlines"
             q = null
+            category = "general"
             GlobalScope.launch { downloadArticleInformation() }
         }
     }
@@ -73,6 +75,9 @@ class DefaultNewsPaperModel : INewsPaperModel {
                 q = if (category != null) category else "all"
             }
             urlBuffer.append("q=$q")
+            if (source != null) {
+                urlBuffer.append("&sources=$source")
+            }
             if (date != null) {
                 urlBuffer.append("&from=$date")
             }
@@ -83,10 +88,9 @@ class DefaultNewsPaperModel : INewsPaperModel {
                 urlBuffer.append("&sortBy=$sortBy")
             }
         } else {
-            if (category == null) {
-                category = "general"
+            if (category != null) {
+                urlBuffer.append("category=$category")
             }
-            urlBuffer.append("category=$category")
             if (q != null) {
                 urlBuffer.append("&q=$q")
             }
@@ -124,6 +128,7 @@ class DefaultNewsPaperModel : INewsPaperModel {
     override fun findArticleByLanguage(lang: String) {
         logger.info("Recherche des articles en fonction de la langue")
         language = lang.lowercase()
+        if(lang == "All") language = null
         GlobalScope.launch { downloadArticleInformation() }
     }
 
@@ -131,14 +136,19 @@ class DefaultNewsPaperModel : INewsPaperModel {
         logger.info("Recherche des articles en fonction de la langue")
         prefix_url = "https://newsapi.org/v2/top-headlines"
         q = null
+        source = null
+        language = null
         category = cate.lowercase()
         if (category == "all") category = "general"
         GlobalScope.launch { downloadArticleInformation() }
     }
 
-    override fun findArticleBySource(source: String) {
+    override fun findArticleBySource(src: String) {
         logger.info("Recherche des articles en fonction de la source")
-
+        prefix_url = "https://newsapi.org/v2/everything"
+        source = src
+        if(src=="All") source = null
+        GlobalScope.launch { downloadArticleInformation() }
     }
 
     override fun searchArticle(search: String) {
@@ -184,7 +194,7 @@ class DefaultNewsPaperModel : INewsPaperModel {
 
             //Image
             if (selectedArticle?.urlToImage != null) {
-                val image = com.itextpdf.text.Image.getInstance(URL(selectedArticle?.urlToImage)).apply {
+                val image = Image.getInstance(URL(selectedArticle?.urlToImage)).apply {
                     spacingBefore = 20f
                     spacingAfter = 20f
                     alignment = Element.ALIGN_CENTER
