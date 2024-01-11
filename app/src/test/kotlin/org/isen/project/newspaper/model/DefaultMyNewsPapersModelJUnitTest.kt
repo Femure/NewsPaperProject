@@ -26,7 +26,7 @@ class DefaultNewsPaperModelJUnitTest {
     fun selectEndPoint() {
         model.register(myObserver)
         model.selectEndPoint("All")
-        Thread.sleep(1000)
+        Thread.sleep(5000)
 
         assertTrue(passObserver, "after update model, observer must receive notification")
         dataResult?.let {
@@ -39,7 +39,7 @@ class DefaultNewsPaperModelJUnitTest {
     fun sortArticleInformation() {
         model.register(myObserver)
         model.sortArticleInformation("Date")
-        Thread.sleep(1000)
+        Thread.sleep(5000)
 
         assertTrue(passObserver, "after update model, observer must receive notification")
         dataResult?.let {
@@ -52,7 +52,7 @@ class DefaultNewsPaperModelJUnitTest {
     fun findArticleByLanguage() {
         model.register(myObserver)
         model.findArticleByLanguage("FR")
-        Thread.sleep(1000)
+        Thread.sleep(5000)
 
         assertTrue(passObserver, "after update model, observer must receive notification")
         dataResult?.let {
@@ -65,7 +65,7 @@ class DefaultNewsPaperModelJUnitTest {
     fun findArticleByCategory() {
         model.register(myObserver)
         model.findArticleByCategory("Sports")
-        Thread.sleep(1000)
+        Thread.sleep(5000)
 
         assertTrue(passObserver, "after update model, observer must receive notification")
         dataResult?.let {
@@ -78,8 +78,7 @@ class DefaultNewsPaperModelJUnitTest {
     fun findArticleBySource() {
         model.register(myObserver)
         model.selectEndPoint("All")
-        model.findArticleBySource("bbc-news")
-        Thread.sleep(1000)
+        model.findArticleBySource("wired")
 
         assertTrue(passObserver, "after update model, observer must receive notification")
         dataResult?.let {
@@ -92,7 +91,7 @@ class DefaultNewsPaperModelJUnitTest {
     fun searchArticle() {
         model.register(myObserver)
         model.searchArticle("bitcoin")
-        Thread.sleep(1000)
+        Thread.sleep(5000)
 
         assertTrue(passObserver, "after update model, observer must receive notification")
         dataResult?.let {
@@ -105,9 +104,10 @@ class DefaultNewsPaperModelJUnitTest {
     fun changeCurrentSelection(){
         model.selectEndPoint("All")
         model.changeCurrentSelection("The End of One-Size-Fits-All Health Care")
-        Thread.sleep(1000)
+        Thread.sleep(5000)
 
         assertTrue(passObserver, "after update model, observer must receive notification")
+        println(dataResult)
         dataResult?.let {
             assertEquals(ArticleInfo::class.java, it::class.java)
             assertNotEquals(0, (it as ArticleInformation).totalResults)

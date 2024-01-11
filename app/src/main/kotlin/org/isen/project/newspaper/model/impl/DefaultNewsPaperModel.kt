@@ -56,6 +56,7 @@ class DefaultNewsPaperModel : INewsPaperModel {
     }
 
     override fun selectEndPoint(endpoint: String) {
+        logger.info("Selection d'un endpoint")
         if (endpoint == "All" && prefix_url != "https://newsapi.org/v2/everything") {
             prefix_url = "https://newsapi.org/v2/everything"
             GlobalScope.launch { downloadArticleInformation() }
