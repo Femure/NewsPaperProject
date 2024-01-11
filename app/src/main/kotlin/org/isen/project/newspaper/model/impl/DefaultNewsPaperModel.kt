@@ -23,7 +23,7 @@ import kotlin.properties.Delegates
 class DefaultNewsPaperModel : INewsPaperModel {
     companion object : Logging {
         var prefix_url: String? = null
-        const val apiKey = "fcf1ae001a1e415bbafca6d3d198036b" //"8309d583f12e4887a867a21c8cf9fb95"
+        const val apiKey = "8309d583f12e4887a867a21c8cf9fb95"
         var date: String? = null
         var sortBy: String? = null
         var language: String? = null
