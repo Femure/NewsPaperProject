@@ -1,9 +1,0 @@
-2024-01-10 17:45:39,685 INFO o.i.p.n.m.i.DefaultNewsPaperModel [Test worker] Ajout d'un nouvel observer org.isen.project.newspaper.model.DefaultNewsPaperModelJUnitTest$$Lambda$303/0x000000080112ecd8@226f885f 
-2024-01-10 17:45:39,722 INFO o.i.p.n.m.i.DefaultNewsPaperModel [Test worker] Selection d'un article
-2024-01-10 17:45:39,723 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$2 [Test worker] Selection d'un article
-2024-01-10 17:49:14,566 INFO o.i.p.n.m.i.DefaultNewsPaperModel [Test worker] Ajout d'un nouvel observer org.isen.project.newspaper.model.DefaultNewsPaperModelJUnitTest$$Lambda$303/0x0000000801130458@52350abb 
-2024-01-10 17:49:14,647 INFO o.i.p.n.m.i.DefaultNewsPaperModel [Test worker] Selection d'un article
-2024-01-10 17:49:14,647 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$2 [Test worker] Selection d'un article
-2024-01-10 17:49:14,662 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1 @coroutine#1] Téléchargement des articles
-2024-01-10 17:49:15,499 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1 @coroutine#1] Status Code: 200
-2024-01-10 17:49:15,501 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1 @coroutine#1] Selection de tous les articles

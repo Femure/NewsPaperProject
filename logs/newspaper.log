@@ -3342,3 +3342,329 @@
 2024-01-10 17:37:09,667 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$2 [AWT-EventQueue-0] Selection d'un article
 2024-01-10 17:37:09,667 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Reception de l'article selectionné
 2024-01-10 17:37:09,833 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.SelectedArticleView@77bb0585 
+2024-01-12 09:54:45,354 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView@4204541c 
+2024-01-12 09:54:45,389 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Selection d'un endpoint
+2024-01-12 09:54:45,454 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:54:46,625 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:54:46,625 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:54:46,626 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 09:54:59,572 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Fait une recherche : END
+2024-01-12 09:54:59,573 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche d'un article en fonction de mots clefs
+2024-01-12 09:54:59,574 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:55:00,539 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:55:00,539 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:55:00,540 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 09:55:05,982 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par source
+2024-01-12 09:55:05,982 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la source
+2024-01-12 09:55:05,984 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:55:06,416 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:55:06,416 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:55:06,417 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 09:55:14,724 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par category
+2024-01-12 09:55:14,725 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la langue
+2024-01-12 09:55:14,726 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:55:15,638 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:55:15,639 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:55:15,639 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 09:55:23,011 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Change de endpoint
+2024-01-12 09:55:23,011 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Selection d'un endpoint
+2024-01-12 09:55:23,012 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:55:23,379 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:55:23,380 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:55:23,380 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 09:55:27,083 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Ordonne la liste
+2024-01-12 09:55:27,083 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Trie des articles
+2024-01-12 09:55:27,084 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:55:27,452 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:55:27,453 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:55:27,453 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 09:55:30,348 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par langue
+2024-01-12 09:55:30,348 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la langue
+2024-01-12 09:55:30,350 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:55:30,617 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:55:30,618 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:55:30,618 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 09:55:38,213 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Fait une recherche : GM
+2024-01-12 09:55:38,214 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche d'un article en fonction de mots clefs
+2024-01-12 09:55:38,214 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:55:38,437 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:55:38,437 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:55:38,437 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 09:55:49,343 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par source
+2024-01-12 09:55:49,344 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la source
+2024-01-12 09:55:49,344 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:55:49,856 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:55:49,857 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:55:55,792 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Fait une recherche : 
+2024-01-12 09:55:55,793 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche d'un article en fonction de mots clefs
+2024-01-12 09:55:55,793 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:55:56,048 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:55:56,049 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:56:15,301 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Change de endpoint
+2024-01-12 09:56:15,302 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Selection d'un endpoint
+2024-01-12 09:57:51,678 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView@4204541c 
+2024-01-12 09:57:51,714 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Selection d'un endpoint
+2024-01-12 09:57:51,773 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:57:53,159 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:57:53,160 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:57:53,161 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 09:57:59,637 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Fait une recherche : aaa
+2024-01-12 09:57:59,638 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche d'un article en fonction de mots clefs
+2024-01-12 09:57:59,640 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:58:00,492 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:58:00,492 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:58:00,493 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 09:58:02,794 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par langue
+2024-01-12 09:58:02,795 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la langue
+2024-01-12 09:58:02,796 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:58:03,156 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:58:03,157 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:58:03,157 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 09:58:05,957 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par category
+2024-01-12 09:58:05,958 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la langue
+2024-01-12 09:58:05,959 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:58:06,363 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:58:06,364 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:58:06,364 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 09:58:09,461 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Change de endpoint
+2024-01-12 09:58:09,461 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Selection d'un endpoint
+2024-01-12 09:58:09,462 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:58:09,747 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:58:09,747 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:58:09,747 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 09:58:12,027 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Fait une recherche : aaa
+2024-01-12 09:58:12,027 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche d'un article en fonction de mots clefs
+2024-01-12 09:58:12,028 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:58:12,265 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:58:12,265 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:58:12,265 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 09:58:19,712 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Fait une recherche : 
+2024-01-12 09:58:19,713 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche d'un article en fonction de mots clefs
+2024-01-12 09:58:19,713 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 09:58:20,434 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 09:58:20,434 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 09:58:20,434 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:00:02,090 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView@4204541c 
+2024-01-12 10:00:02,124 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Selection d'un endpoint
+2024-01-12 10:00:02,191 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:00:03,377 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:00:03,378 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:00:03,378 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:00:04,918 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par source
+2024-01-12 10:00:04,920 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la source
+2024-01-12 10:00:04,921 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:00:05,311 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:00:05,311 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:00:05,312 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:00:07,168 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par langue
+2024-01-12 10:00:07,168 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la langue
+2024-01-12 10:00:07,170 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:00:07,360 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:00:07,360 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:00:07,361 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:00:08,911 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par source
+2024-01-12 10:00:08,911 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la source
+2024-01-12 10:00:08,911 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:00:09,271 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:00:09,271 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:00:09,272 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:00:14,487 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par langue
+2024-01-12 10:00:14,488 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la langue
+2024-01-12 10:00:14,488 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:00:15,450 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:00:15,451 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:00:15,451 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:00:17,975 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Ordonne la liste
+2024-01-12 10:00:17,975 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Trie des articles
+2024-01-12 10:00:17,977 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:00:18,326 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:00:18,327 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:00:18,327 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:00:23,406 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par source
+2024-01-12 10:00:23,406 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la source
+2024-01-12 10:00:23,407 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:00:23,692 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:00:23,693 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:00:28,013 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Click sur un article
+2024-01-12 10:00:28,014 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:00:28,014 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$2 [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:00:28,015 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Reception de l'article selectionné
+2024-01-12 10:00:28,374 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.SelectedArticleView@86857b3 
+2024-01-12 10:00:31,974 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Click sur le boutton d'export de PDF
+2024-01-12 10:00:34,272 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Export d'un article au format pdf : app/src/main/resources/pdf/n.pdf
+2024-01-12 10:00:35,552 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Export de l'article au format PDF réussi
+2024-01-12 10:01:29,536 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView@4204541c 
+2024-01-12 10:01:29,569 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Selection d'un endpoint
+2024-01-12 10:01:29,630 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:01:30,747 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:01:30,748 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:01:30,748 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:01:32,136 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par langue
+2024-01-12 10:01:32,138 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la langue
+2024-01-12 10:01:32,139 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:01:32,320 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:01:32,320 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:01:32,321 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:01:33,282 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Click sur un article
+2024-01-12 10:01:33,283 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:01:33,283 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$2 [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:01:33,283 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Reception de l'article selectionné
+2024-01-12 10:01:33,715 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.SelectedArticleView@5e39ef8e 
+2024-01-12 10:01:37,751 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Click sur le boutton d'export de PDF
+2024-01-12 10:01:40,864 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Export d'un article au format pdf : app/src/main/resources/pdf/n.pdf
+2024-01-12 10:01:41,381 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Export de l'article au format PDF réussi
+2024-01-12 10:03:06,037 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Click sur le boutton d'export de PDF
+2024-01-12 10:03:08,616 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Export d'un article au format pdf : app/src/main/resources/pdf/a.pdf
+2024-01-12 10:03:08,864 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Export de l'article au format PDF réussi
+2024-01-12 10:04:40,899 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView@4204541c 
+2024-01-12 10:04:40,926 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Selection d'un endpoint
+2024-01-12 10:04:40,994 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:04:42,131 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:04:42,133 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:04:42,133 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:04:46,344 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par langue
+2024-01-12 10:04:46,345 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la langue
+2024-01-12 10:04:46,347 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:04:46,582 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:04:46,583 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:04:46,583 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:04:47,254 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Click sur un article
+2024-01-12 10:04:47,255 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:04:47,255 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$2 [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:04:47,255 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Reception de l'article selectionné
+2024-01-12 10:04:47,589 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.SelectedArticleView@8aaa9b7 
+2024-01-12 10:04:52,351 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Click sur le boutton d'export de PDF
+2024-01-12 10:04:54,946 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Export d'un article au format pdf : app/src/main/resources/pdf/aaa.pdf
+2024-01-12 10:04:58,189 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Export de l'article au format PDF réussi
+2024-01-12 10:07:25,075 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Click sur le boutton d'export de PDF
+2024-01-12 10:07:28,105 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Export d'un article au format pdf : app/src/main/resources/pdf/n.pdf
+2024-01-12 10:07:29,915 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Export de l'article au format PDF réussi
+2024-01-12 10:08:02,551 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView@4204541c 
+2024-01-12 10:08:02,579 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Selection d'un endpoint
+2024-01-12 10:08:02,643 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:08:03,869 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:08:03,870 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:08:03,870 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:08:06,697 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par langue
+2024-01-12 10:08:06,698 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la langue
+2024-01-12 10:08:06,699 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:08:07,088 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:08:07,089 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:08:07,090 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:08:07,598 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Click sur un article
+2024-01-12 10:08:07,598 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:08:07,599 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$2 [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:08:07,599 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Reception de l'article selectionné
+2024-01-12 10:08:07,911 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.SelectedArticleView@4c8eb9eb 
+2024-01-12 10:08:09,471 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Click sur le boutton d'export de PDF
+2024-01-12 10:08:11,531 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Export d'un article au format pdf : app/src/main/resources/pdf/a.pdf
+2024-01-12 10:08:12,083 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Export de l'article au format PDF réussi
+2024-01-12 10:12:58,858 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView@4602c2a9 
+2024-01-12 10:12:58,887 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Selection d'un endpoint
+2024-01-12 10:12:58,958 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:13:00,323 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:13:00,324 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:13:00,325 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:13:02,744 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par langue
+2024-01-12 10:13:02,745 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la langue
+2024-01-12 10:13:02,747 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:13:02,967 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:13:02,968 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:13:02,968 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:13:06,558 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Click sur un article
+2024-01-12 10:13:06,559 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:13:06,559 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$2 [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:13:06,559 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Reception de l'article selectionné
+2024-01-12 10:13:06,846 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.SelectedArticleView@16966a21 
+2024-01-12 10:13:08,829 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Click sur le boutton d'export de PDF
+2024-01-12 10:13:11,057 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Export d'un article au format pdf : app/src/main/resources/pdf/a.pdf
+2024-01-12 10:13:11,682 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Export de l'article au format PDF réussi
+2024-01-12 10:15:45,391 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView@4204541c 
+2024-01-12 10:15:45,422 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Selection d'un endpoint
+2024-01-12 10:15:45,488 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:15:46,507 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:15:46,507 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:15:46,508 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:15:48,552 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par langue
+2024-01-12 10:15:48,553 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la langue
+2024-01-12 10:15:48,555 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:15:48,877 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:15:48,877 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:15:48,877 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:15:49,597 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Click sur un article
+2024-01-12 10:15:49,597 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:15:49,598 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$2 [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:15:49,598 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Reception de l'article selectionné
+2024-01-12 10:15:49,885 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.SelectedArticleView@110dee0 
+2024-01-12 10:15:50,917 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Click sur le boutton d'export de PDF
+2024-01-12 10:15:52,634 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Export d'un article au format pdf : app/src/main/resources/pdf/a.pdf
+2024-01-12 10:15:55,330 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Export de l'article au format PDF réussi
+2024-01-12 10:16:25,699 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView@4204541c 
+2024-01-12 10:16:25,725 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Selection d'un endpoint
+2024-01-12 10:16:25,785 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:16:26,883 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:16:26,883 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:16:26,884 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:16:28,846 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par langue
+2024-01-12 10:16:28,846 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la langue
+2024-01-12 10:16:28,846 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:16:29,113 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:16:29,113 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:16:29,113 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:16:29,948 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Click sur un article
+2024-01-12 10:16:29,948 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:16:29,948 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$2 [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:16:29,948 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Reception de l'article selectionné
+2024-01-12 10:16:30,325 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.SelectedArticleView@76749f7f 
+2024-01-12 10:16:32,198 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Click sur le boutton d'export de PDF
+2024-01-12 10:16:33,996 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Export d'un article au format pdf : app/src/main/resources/pdf/a.pdf
+2024-01-12 10:16:34,478 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Export de l'article au format PDF réussi
+2024-01-12 10:27:51,271 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView@4204541c 
+2024-01-12 10:27:51,305 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Selection d'un endpoint
+2024-01-12 10:27:51,364 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:27:52,919 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:27:52,920 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:27:52,920 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:28:18,219 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView@6a62689d 
+2024-01-12 10:28:18,250 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Selection d'un endpoint
+2024-01-12 10:28:18,307 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:28:19,808 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:28:19,809 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:28:19,809 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:28:27,053 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Click sur un article
+2024-01-12 10:28:27,054 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:28:27,055 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$2 [AWT-EventQueue-0] Selection d'un article
+2024-01-12 10:28:27,055 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Reception de l'article selectionné
+2024-01-12 10:28:27,329 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.SelectedArticleView@2dd30765 
+2024-01-12 10:28:30,941 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Click sur le boutton d'export de PDF
+2024-01-12 10:28:32,834 INFO o.i.p.n.v.i.SelectedArticleView [AWT-EventQueue-0] Export d'un article au format pdf : app/src/main/resources/pdf/a.pdf
+2024-01-12 10:28:33,595 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Export de l'article au format PDF réussi
+2024-01-12 10:57:59,270 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Ajout d'un nouvel observer org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView@4204541c 
+2024-01-12 10:57:59,299 INFO o.i.p.n.m.i.DefaultNewsPaperModel [main] Selection d'un endpoint
+2024-01-12 10:57:59,358 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-2] Téléchargement des articles
+2024-01-12 10:58:01,034 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-2] Status Code: 200
+2024-01-12 10:58:01,035 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-2] Selection de tous les articles
+2024-01-12 10:58:01,036 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-2] Reception de la liste d'articles
+2024-01-12 10:58:06,187 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Filtre par source
+2024-01-12 10:58:06,188 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche des articles en fonction de la source
+2024-01-12 10:58:06,189 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-2] Téléchargement des articles
+2024-01-12 10:58:07,116 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Fait une recherche : 
+2024-01-12 10:58:07,117 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche d'un article en fonction de mots clefs
+2024-01-12 10:58:07,118 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:58:07,204 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-2] Status Code: 200
+2024-01-12 10:58:07,205 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-2] Selection de tous les articles
+2024-01-12 10:58:07,205 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-2] Reception de la liste d'articles
+2024-01-12 10:58:07,565 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:58:07,566 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:58:08,810 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Change de endpoint
+2024-01-12 10:58:08,810 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Selection d'un endpoint
+2024-01-12 10:58:08,812 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:58:09,261 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:58:09,261 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:58:09,262 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles
+2024-01-12 10:58:09,691 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [AWT-EventQueue-0] Fait une recherche : 
+2024-01-12 10:58:09,692 INFO o.i.p.n.m.i.DefaultNewsPaperModel [AWT-EventQueue-0] Recherche d'un article en fonction de mots clefs
+2024-01-12 10:58:09,692 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Téléchargement des articles
+2024-01-12 10:58:10,139 INFO o.i.p.n.m.i.DefaultNewsPaperModel [DefaultDispatcher-worker-1] Status Code: 200
+2024-01-12 10:58:10,140 INFO o.i.p.n.m.i.DefaultNewsPaperModel$special$$inlined$observable$1 [DefaultDispatcher-worker-1] Selection de tous les articles
+2024-01-12 10:58:10,140 INFO o.i.p.n.v.i.DefaultNewsPaperInfoView [DefaultDispatcher-worker-1] Reception de la liste d'articles

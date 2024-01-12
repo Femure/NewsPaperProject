@@ -42,6 +42,7 @@ class DefaultNewsPaperModel : INewsPaperModel {
 
     private var selectedArticle: ArticleInfo? by Delegates.observable(null) { _, oldValue, newValue ->
         logger.info("Selection d'un article")
+        println(newValue)
         pcs.firePropertyChange(INewsPaperModel.DATATYPE_ARTICLE, oldValue, newValue)
     }
 
@@ -154,7 +155,7 @@ class DefaultNewsPaperModel : INewsPaperModel {
 
     override fun searchArticle(search: String) {
         logger.info("Recherche d'un article en fonction de mots clefs")
-        if (search.isNotBlank()) q = search
+        q = if (search.isNotBlank()) search else "All"
         GlobalScope.launch { downloadArticleInformation() }
     }
 
@@ -169,7 +170,6 @@ class DefaultNewsPaperModel : INewsPaperModel {
 
             PdfWriter.getInstance(document, FileOutputStream(file))
 
-
             //Metadata
             document.apply {
                 open()
@@ -182,16 +182,17 @@ class DefaultNewsPaperModel : INewsPaperModel {
                 }
             }
 
+            val ArialUniFont = BaseFont.createFont("app/src/main/resources/font/Arial Unicode MS.ttf",  BaseFont.IDENTITY_H, BaseFont.EMBEDDED)
+
             //Title
-            val titleFont = FontFactory.getFont("Arial", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, 20f, Font.BOLD)
-            val title = Paragraph(selectedArticle?.title, titleFont).apply {
+            val title = Paragraph(selectedArticle?.title,Font(ArialUniFont, 20f, Font.BOLD)).apply {
                 alignment = Element.ALIGN_CENTER
                 spacingAfter = 10f
             }
             document.add(title)
 
             //Description
-            document.add(Paragraph(selectedArticle?.description))
+            document.add(Paragraph(selectedArticle?.description,Font(ArialUniFont, 12f)))
 
             //Image
             if (selectedArticle?.urlToImage != null) {
@@ -205,21 +206,14 @@ class DefaultNewsPaperModel : INewsPaperModel {
             }
 
             //Content
-            val content = Paragraph(selectedArticle?.content).apply {
+            val content = Paragraph(selectedArticle?.content,Font(ArialUniFont, 12f)).apply {
                 spacingAfter = 5f
             }
             document.add(content)
 
-
             //Footer
-            val footerFont = FontFactory.getFont(
-                "Arial",
-                BaseFont.IDENTITY_H,
-                BaseFont.EMBEDDED,
-                12f,
-                Font.BOLD,
-                BaseColor(41, 128, 185)
-            )
+            val footerFont = Font(ArialUniFont, 12f, Font.BOLD,BaseColor(41, 128, 185))
+
             //URL
             document.add(Paragraph("Reference : ${selectedArticle?.url}", footerFont))
 

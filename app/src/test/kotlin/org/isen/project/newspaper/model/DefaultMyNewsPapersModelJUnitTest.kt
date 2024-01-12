@@ -20,7 +20,6 @@ class DefaultNewsPaperModelJUnitTest {
         register(myObserver)
     }
 
-
     @Test
     fun selectEndPoint() {
         model.selectEndPoint("All")
@@ -70,6 +69,20 @@ class DefaultNewsPaperModelJUnitTest {
     }
 
     @Test
+    fun findArticleBySource() {
+        model.selectEndPoint("All")
+        model.findArticleBySource("wired")
+        Thread.sleep(5000)
+
+        assertTrue(passObserver, "after update model, observer must receive notification")
+        dataResult?.let {
+            assertEquals(ArticleInformation::class.java, it::class.java)
+            assertNotEquals(0, (it as ArticleInformation).totalResults)
+            assertEquals("wired", it.articles[0].source.id)
+        } ?: fail("data result cannot be null")
+    }
+
+    @Test
     fun searchArticle() {
         model.searchArticle("bitcoin")
         Thread.sleep(5000)
@@ -80,4 +93,6 @@ class DefaultNewsPaperModelJUnitTest {
             assertNotEquals(0, (it as ArticleInformation).totalResults)
         } ?: fail("data result cannot be null")
     }
+
+
 }

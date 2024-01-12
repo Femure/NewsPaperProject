@@ -17,7 +17,7 @@ import javax.swing.event.ListSelectionListener
 import javax.swing.plaf.nimbus.NimbusLookAndFeel
 
 
-class DefaultNewsPaperInfoView(private val controller: NewsPaperController, title: String = "NewsPaper") :
+class DefaultNewsPaperInfoView(private val controller: NewsPaperController, title: String = "News Papers Application") :
     INewsPaperView, ActionListener, ListSelectionListener {
 
     companion object Logging
@@ -81,7 +81,6 @@ class DefaultNewsPaperInfoView(private val controller: NewsPaperController, titl
 
             // Body
             add(JScrollPane(articleList), BorderLayout.CENTER)
-
 
         }
 

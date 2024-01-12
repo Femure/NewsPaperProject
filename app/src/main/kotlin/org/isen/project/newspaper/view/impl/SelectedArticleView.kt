@@ -32,7 +32,7 @@ class SelectedArticleView(
             isVisible = true
             contentPane = makeGUIFocus()
             defaultCloseOperation = WindowConstants.DISPOSE_ON_CLOSE
-            title = "Focus on an article"
+            title = "Article selected"
             setLocation(870, 0)
             preferredSize = Dimension(500, 400)
             pack()

@@ -11,7 +11,7 @@ import org.isen.project.newspaper.view.impl.DefaultNewsPaperInfoView
 fun main() {
     val newsPaperModel = DefaultNewsPaperModel()
     val newsPaperController = NewsPaperController(newsPaperModel)
-    DefaultNewsPaperInfoView(newsPaperController, "News Papers Application")
+    DefaultNewsPaperInfoView(newsPaperController)
     newsPaperController.displayViews()
     newsPaperController.loadNewsPaperInformationByEndpoint("All")
 }

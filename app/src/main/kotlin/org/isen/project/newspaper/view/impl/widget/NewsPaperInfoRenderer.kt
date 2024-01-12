@@ -10,20 +10,21 @@ import javax.swing.border.EmptyBorder
 
 class NewsPaperInfoRenderer : JPanel(), ListCellRenderer<ArticleInfo> {
 
-    private val titleLabel = JLabel()
-    private val publishedAtLabel = JLabel()
-    private val authorLabel = JLabel()
+    private val titleLabel = JLabel().apply {
+        font = Font("Arial Unicode MS", Font.BOLD, 16)
+    }
+    private val publishedAtLabel = JLabel().apply {
+        font = Font("Arial Unicode MS", Font.ITALIC, 10)
+    }
+    private val authorLabel = JLabel().apply {
+        font = Font("Arial Unicode MS", Font.PLAIN, 14)
+    }
 
     init {
 
         isOpaque = true
         border = EmptyBorder(5, 10, 5, 10)
         preferredSize = Dimension(0,60)
-
-
-        titleLabel.font = Font("Arial Unicode MS", Font.BOLD, 16)
-        publishedAtLabel.font = Font("Arial Unicode MS", Font.ITALIC, 10)
-        authorLabel.font = Font("Arial Unicode MS", Font.PLAIN, 14)
         layout = GridBagLayout()
 
         //Title
